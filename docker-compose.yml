@@ -19,7 +19,7 @@
 #              port 80 exposé
 #              dépend de : backend
 #
-#   Indice : 
+#   Indice :
 #     vous aurez besoin d'un volume pour Mongo, mais pas pour les autres services.
 #     vous aurez aussi besoin de la directive "depends_on" pour gérer l'ordre de démarrage des services.
 #
@@ -27,15 +27,28 @@
 # écrites en dur ici — utilisez un fichier .env (voir .env.example)
 # ─────────────────────────────────────────────────────────────────────────────
 
-
 services:
   backend:
     build: ./backend
     ports:
       - "8000:8000"
     environment:
-      Mongo_UTL: ${MONGO_URL}
+      Mongo_URL: mongodb://database:27017
       SECRET_KEY: ${SECRET_KEY}
 
     depends_on:
-      - mongo
+      - database
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend    
+  database:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+volumes:
+  mongo_data:
