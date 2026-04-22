@@ -27,9 +27,9 @@ jobs:
       # Étape 3 : Construire et pousser les images Docker
       - name: Build and push Docker images
         uses: docker/build-push-action@v4
-          with:
-            context: .
-            push: true
-            tags: |
+        with:
+          context: .
+          push: true
+          tags: |
             celso/frokable-backend:latest
             celso/frokable-frontend:latest
