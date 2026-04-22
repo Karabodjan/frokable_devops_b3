@@ -26,6 +26,7 @@ MONGO_URL   = os.getenv("MONGO_URL", "mongodb://localhost:27017")
 SECRET_KEY  = os.getenv("SECRET_KEY", "changeme_in_production")
 ALGORITHM   = "HS256"
 TOKEN_EXPIRE_MINUTES = 60
+print("Bonjour ! Voici les variables d'environnement chargées :")
 
 # ─── CONNEXION MONGODB ───────────────────────────────────────────────────────
 client = MongoClient(MONGO_URL)
