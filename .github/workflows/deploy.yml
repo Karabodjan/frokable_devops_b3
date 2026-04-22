@@ -31,5 +31,4 @@ jobs:
           context: .
           push: true
           tags: |
-            celso/frokable-backend:latest
-            celso/frokable-frontend:latest
+            celso/app:latest
