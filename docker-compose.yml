@@ -33,7 +33,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      Mongo_URL: mongodb://database:27017
+      MONGO_URL: mongodb://database:27017
       SECRET_KEY: ${SECRET_KEY}
 
     depends_on:
