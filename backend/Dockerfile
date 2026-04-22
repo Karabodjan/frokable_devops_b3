@@ -14,6 +14,8 @@
 #
 # Bonus : implémenter un multi-stage build pour réduire la taille de l'image
 # ─────────────────────────────────────────────────────────────────────────────
+
+
 # Image de base
 FROM python:3.12-slim
 
