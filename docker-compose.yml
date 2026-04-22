@@ -26,3 +26,16 @@
 # Rappel : les variables sensibles (SECRET_KEY) ne doivent pas être
 # écrites en dur ici — utilisez un fichier .env (voir .env.example)
 # ─────────────────────────────────────────────────────────────────────────────
+
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      Mongo_UTL: ${MONGO_URL}
+      SECRET_KEY: ${SECRET_KEY}
+
+    depends_on:
+      - mongo
