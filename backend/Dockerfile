@@ -22,6 +22,10 @@ FROM python:3.12-slim
 # Dossier de travail dans le conteneur
 WORKDIR /app
 
+# Ne pas créer de fichiers pendant l'installation des dépendances
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
 # Installer les dépendances
 COPY requirements.txt .
 
